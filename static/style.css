@@ -1,0 +1,481 @@
+/* ============================================================================
+   DeployPulse - Styling
+   ============================================================================ */
+
+:root {
+  --bg: #eeeeee;
+  --card-bg: #ffffff;
+  --text: #222;
+  --muted: #6b7280;
+  --border: #d1d5db;
+  --accent: #166534;
+  --accent-hover: #14532d;
+  --focus: #2563eb;
+  --success: #059669;
+  --warning: #d97706;
+  --error: #dc2626;
+  --info: #0891b2;
+  --radius: 8px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 6px 20px rgba(0, 0, 0, 0.06);
+  --font:
+    ui-sans-serif, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+    'Apple Color Emoji', 'Segoe UI Emoji';
+  --label: 12px;
+  --body: 14px;
+}
+
+/* ============================================================================
+   Base Styles
+   ============================================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--bg);
+  font-family: var(--font);
+  color: var(--text);
+  font-size: var(--body);
+  line-height: 1.5;
+}
+
+body {
+  overflow: auto;
+}
+
+/* ============================================================================
+   Layout
+   ============================================================================ */
+
+.wrap {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: min(500px, 92vw);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+/* ============================================================================
+   Visibility States
+   ============================================================================ */
+
+.form-hidden {
+  display: none;
+}
+
+.form-visible {
+  display: block;
+}
+
+.progress-hidden {
+  display: none;
+}
+
+.progress-visible {
+  display: block;
+}
+
+.results-hidden {
+  display: none;
+}
+
+.results-visible {
+  display: block;
+}
+
+/* ============================================================================
+   Typography
+   ============================================================================ */
+
+.title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 28px;
+  margin: 0 0 6px;
+  color: var(--accent);
+}
+
+.subtitle {
+  text-align: center;
+  color: var(--muted);
+  line-height: 1.2;
+  margin: 0 0 22px;
+  font-size: 12px;
+}
+
+.progress-title,
+.results-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+/* ============================================================================
+   Form Styles
+   ============================================================================ */
+
+.form-content {
+  display: block;
+}
+
+.field {
+  margin: 16px 0 14px;
+  border: none;
+  padding: 0;
+}
+
+.field legend {
+  font-size: var(--label);
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 24px;
+  align-items: center;
+}
+
+.option {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #374151;
+  cursor: pointer;
+  user-select: none;
+}
+
+.option input[type='radio'] {
+  width: 14px;
+  height: 14px;
+  accent-color: #047857;
+  cursor: pointer;
+}
+
+.option input[type='radio']:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* ============================================================================
+   Text Field
+   ============================================================================ */
+
+.textfield {
+  margin: 16px 0 14px;
+}
+
+.textfield label {
+  display: block;
+  font-size: var(--label);
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.textfield input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 10px 12px;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  outline: none;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+
+.textfield input::placeholder {
+  color: #9ca3af;
+}
+
+.textfield input:focus {
+  border-color: var(--focus);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.textfield input:invalid:not(:placeholder-shown) {
+  border-color: var(--error);
+}
+
+/* ============================================================================
+   Buttons
+   ============================================================================ */
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid transparent;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 24px;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    transform 0.02s;
+  min-width: 120px;
+}
+
+.btn:hover {
+  background: var(--accent-hover);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(22, 101, 52, 0.2);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--muted);
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background: #5a6d7d;
+}
+
+/* ============================================================================
+   Progress Section
+   ============================================================================ */
+
+.progress-info {
+  background: #f3f4f6;
+  border-left: 4px solid var(--info);
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.progress-info p {
+  margin: 4px 0;
+}
+
+.progress-logs {
+  margin: 16px 0;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.logs-list {
+  padding: 12px;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  line-height: 1.6;
+}
+
+.log-entry {
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
+  word-break: break-word;
+}
+
+.log-entry:last-child {
+  border-bottom: none;
+}
+
+.log-info {
+  color: var(--info);
+}
+
+.log-success {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.log-warning {
+  color: var(--warning);
+}
+
+.log-error {
+  color: var(--error);
+  font-weight: 600;
+}
+
+.error-message {
+  background: #fee2e2;
+  border-left: 4px solid var(--error);
+  color: #7f1d1d;
+  padding: 12px;
+  border-radius: 4px;
+  margin-top: 16px;
+  font-size: 13px;
+}
+
+/* ============================================================================
+   Results Section
+   ============================================================================ */
+
+.results-status {
+  background: #f0fdf4;
+  border-left: 4px solid var(--success);
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.results-status p {
+  margin: 0;
+  color: #166534;
+  font-weight: 500;
+}
+
+.results-files {
+  margin: 16px 0;
+  padding: 12px;
+  background: #f9fafb;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.results-files h3 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.file-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.file-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 12px;
+}
+
+.file-item:last-child {
+  border-bottom: none;
+}
+
+.file-link {
+  color: var(--focus);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.file-link:hover {
+  text-decoration: underline;
+}
+
+.results-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* ============================================================================
+   Responsive Design
+   ============================================================================ */
+
+@media (max-width: 600px) {
+  .card {
+    width: 95vw;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .progress-logs {
+    max-height: 300px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}
+
+/* ============================================================================
+   Utility Classes
+   ============================================================================ */
+
+.visually-hidden {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+  border: 0;
+  padding: 0;
+  margin: -1px;
+}
+
+/* ============================================================================
+   Scrollbar Styling (Optional)
+   ============================================================================ */
+
+.logs-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.logs-list::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.logs-list::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.logs-list::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

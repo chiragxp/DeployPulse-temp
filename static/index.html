@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DeployPulse – Release Impact Report Generator</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='90'>🚀</text></svg>" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <!-- Form Section -->
+    <section id="form-section" class="card form-visible">
+      <h1 class="title">DeployPulse</h1>
+      <p class="subtitle">Release Impact Report Generator</p>
+
+      <form id="execution-form" class="form-content">
+        <!-- Environment -->
+        <fieldset class="field">
+          <legend>Environment</legend>
+          <div class="options" role="radiogroup" aria-label="Environment">
+            <label class="option">
+              <input type="radio" name="environment" value="dev" required />
+              Dev
+            </label>
+            <label class="option">
+              <input type="radio" name="environment" value="qa" />
+              QA
+            </label>
+            <label class="option">
+              <input type="radio" name="environment" value="stage" />
+              Stage
+            </label>
+            <label class="option">
+              <input type="radio" name="environment" value="prod" />
+              Production
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Event -->
+        <fieldset class="field">
+          <legend>Event</legend>
+          <div class="options" role="radiogroup" aria-label="Event">
+            <label class="option">
+              <input type="radio" name="event" value="pre" required />
+              Pre-Deployment
+            </label>
+            <label class="option">
+              <input type="radio" name="event" value="post" />
+              Post-Deployment
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- Ticket Number -->
+        <div class="textfield">
+          <label for="ticket-id">Ticket Number</label>
+          <input
+            id="ticket-id"
+            type="text"
+            name="ticket_id"
+            placeholder="Enter Ticket Number (e.g., CHG01250744)"
+            required
+            pattern="^[A-Za-z0-9]+$"
+            title="Ticket number should only contain letters and numbers"
+          />
+        </div>
+
+        <!-- Submit Button -->
+        <div class="actions">
+          <button type="submit" class="btn" id="execute-btn">Submit</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Progress Section -->
+    <section id="progress-section" class="card progress-hidden">
+      <h2 class="progress-title">Execution in Progress</h2>
+      <div class="progress-info">
+        <p><strong>Ticket ID:</strong> <span id="progress-ticket-id"></span></p>
+        <p><strong>Environment:</strong> <span id="progress-env"></span></p>
+        <p><strong>Event:</strong> <span id="progress-event"></span></p>
+      </div>
+
+      <div class="progress-logs">
+        <div id="logs-container" class="logs-list"></div>
+      </div>
+
+      <div id="progress-error" class="error-message" style="display: none;"></div>
+    </section>
+
+    <!-- Results Section -->
+    <section id="results-section" class="card results-hidden">
+      <h2 class="results-title">Execution Completed</h2>
+      <div class="results-status">
+        <p id="results-message"></p>
+      </div>
+
+      <div id="results-files" class="results-files"></div>
+
+      <div class="results-actions">
+        <button type="button" class="btn btn-secondary" id="back-btn">Back to Form</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
