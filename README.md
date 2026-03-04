@@ -132,7 +132,6 @@ DeployPulse/
 ├── fetch_metrics.py            # New Relic metrics fetcher
 ├── compare_metrics.py          # Metrics comparison & report generator
 ├── requirements.txt            # Python dependencies
-├── USAGE_GUIDE.md             # Detailed usage documentation
 ├── README.md                   # This file
 ├── database/                   # Deployment snapshots and comparisons
 │   ├── PROD001/
