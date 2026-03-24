@@ -26,26 +26,46 @@ logger = logging.getLogger(__name__)
 # Environment Validation
 # ============================================================================
 def validate_env_file():
-    """Validate that .env file exists before starting the application"""
+    """Validate that required environment variables are set.
+    
+    Checks environment variables first (for Docker/containerized environments),
+    then falls back to checking for .env file (for local development).
+    """
+    required_vars = ["NEW_RELIC_API_KEY", "NEW_RELIC_ACCOUNT_ID"]
+    missing_vars = [var for var in required_vars if not os.environ.get(var)]
+    
+    # If all required env vars are set, validation passes (Docker scenario)
+    if not missing_vars:
+        logger.info("✓ Environment variables validation passed")
+        return
+    
+    # If env vars are missing, check for .env file (local development scenario)
     env_path = Path(".env")
     if not env_path.exists():
         error_message = (
             "\n" + "=" * 60 + "\n"
-            "ERROR: .env file not found!\n"
+            "ERROR: Missing required environment variables!\n"
             "=" * 60 + "\n"
-            "The application cannot start without the .env file.\n\n"
-            "Required setup steps:\n"
+            "The application cannot start without the following:\n"
+            f"  - {', '.join(missing_vars)}\n\n"
+            "For local development, set these in one of two ways:\n\n"
+            "Option A: Create a .env file\n"
             "  1. Create a .env file in the project root directory\n"
             "  2. Add the following variables to the .env file:\n"
             "     - NEW_RELIC_API_KEY=your_api_key\n"
             "     - NEW_RELIC_ACCOUNT_ID=your_account_id\n"
             "  3. Save the .env file\n"
             "  4. Run the application again:\n"
-            "     python3 run.py\n"
+            "     python3 run.py\n\n"
+            "Option B: Set environment variables directly\n"
+            "  export NEW_RELIC_API_KEY=your_api_key\n"
+            "  export NEW_RELIC_ACCOUNT_ID=your_account_id\n"
+            "  python3 run.py\n"
             "=" * 60 + "\n"
         )
         logger.error(error_message)
         sys.exit(1)
+    
     logger.info("✓ .env file validation passed")
 
 # Thread pool for blocking I/O operations

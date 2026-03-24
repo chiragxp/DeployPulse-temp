@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  deploypulse:
+    platform: linux/arm64/v8
+    build: .
+    container_name: deploypulse-app
+    ports:
+      - '8000:8000'
+    env_file:
+      - .env
+    volumes:
+      - ./database:/app/database
+      - ./logs:/app/logs
+
+    networks:
+      - deploypulse-network
+
+networks:
+  deploypulse-network:
+    driver: bridge

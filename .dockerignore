@@ -1,0 +1,40 @@
+# Git and version control
+.git
+.gitignore
+.github
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# IDE and Editor
+.vscode
+.idea
+*.swp
+*.swo
+*.sublime-*
+.DS_Store
+
+# OS
+Thumbs.db
+.tmp
+
+# Build and dist
+build/
+dist/
+*.egg-info/
+
+# Documentation
+docs/
+
+# Local files that shouldn't be in image
+.env
+.env.local
+README.md
+.gitattributes

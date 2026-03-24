@@ -19,7 +19,7 @@ DeployPulse is an intelligent deployment monitoring and analysis tool that fetch
 
 Before you begin, ensure you have the following:
 
-- **Python 3.8 or higher**: [Download Python](https://www.python.org/downloads/)
+- **Python 3.12 or higher**: [Download Python](https://www.python.org/downloads/)
 - **pip**: Python package manager (included with Python)
 - **New Relic Account**: With API access (Account ID and API Key required)
 - **AI Endpoint**: For generating AI-powered insights (URL required)
@@ -180,7 +180,7 @@ After running a deployment analysis, the following files are generated and store
 - **Requests** (2.32.5): HTTP client for API calls
 - **python-dotenv** (1.2.1): Environment variable management
 - **ReportLab** (4.4.9): PDF generation library
-- **Matplotlib** (3.10.8): Data visualization
+- **Matplotlib** (3.9.4): Data visualization
 - **python-multipart** (0.0.6): Form data parsing
 
 ## Configuration
